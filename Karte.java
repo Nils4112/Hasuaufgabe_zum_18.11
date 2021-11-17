@@ -14,7 +14,7 @@ public record Karte(Farbe Farbe, Wert Wert){
 	 {
 		 
 		//funktioniert nicht
-		 return Karte.neueKarte(Farbe.KREUZ, Wert.SIEBEN);
+		 return Karte.neueKarte(Farbe.valueOf(f), Wert.valueOf(w));
 		/*switch (f) {
 		 case KREUZ: 
 			 switch (w) {
