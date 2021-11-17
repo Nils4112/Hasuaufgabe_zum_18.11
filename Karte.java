@@ -31,7 +31,7 @@ public record Karte(Farbe KartenFarbe, Wert KartenWert){
 
 		return res;
 	}
-	boolean bedient(Karte other) {
+	public boolean bedient(Karte other) {
 		if(this.KartenWert == Wert.BUBE) {
 			return true;
 		} else if(this.KartenFarbe == other.KartenFarbe) {
@@ -41,12 +41,22 @@ public record Karte(Farbe KartenFarbe, Wert KartenWert){
 		}
 		return false;
 	}
-	boolean bedienbar(Karte... kn) {
+	public boolean bedienbar(Karte... kn) {
 		for(Karte IKarte : kn) {
 			if(IKarte.bedient(this)) {
 				return true;
 			}
 		}
 		return false;
+	}
+	public static void druckeDoppelBedienungen() {
+		Karte[] Skatblatt = skatblatt();
+		for(Karte IKarte: Skatblatt) {
+            for(Karte IKarte2: Skatblatt) {
+                if(IKarte.bedient(IKarte2) && IKarte2.bedient(IKarte) && !IKarte.equals(IKarte2)) {
+					System.out.println(IKarte + " bedient " + IKarte2 + " und " + IKarte2 + " bedient " + IKarte);
+				}
+            }
+        }
 	}
 }
