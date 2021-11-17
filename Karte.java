@@ -1,8 +1,9 @@
 
-public record Karte(Farbe Farbe, Wert Wert){
-	 
+// Wenn (Farbe Farbe, Wert Wert) sind die enum Klassen im globalen scope nicht mehr aufrufbar, da ueberschattet von lokalen variablen
+public record Karte(Farbe thisFarbe, Wert thisWert){
+
 	public String toString() {
-	        return Farbe.toString()+Wert.toString();
+	        return thisFarbe.toString()+thisWert.toString();
 	    }
 	 public static Karte neueKarte(Farbe f, Wert w)
 	 {
