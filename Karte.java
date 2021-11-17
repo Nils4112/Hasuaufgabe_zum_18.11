@@ -1,0 +1,66 @@
+
+public record Karte(Farbe Farbe, Wert Wert){
+	 
+	public String toString() {
+	        return Farbe.toString()+Wert.toString();
+	    }
+	 public static Karte neueKarte(Farbe f, Wert w)
+	 {
+		 
+		Karte nKarte = new Karte(f,w);
+		return nKarte;
+	 }
+	 public static Karte neueKarte(String f, String w)
+	 {
+		 
+		 Karte nKarte = new Karte();
+			return nKarte;
+		 return Karte.neueKarte(Farbe.KREUZ, Wert.SIEBEN);
+		/*switch (f) {
+		 case KREUZ: 
+			 switch (w) {
+			 case SIEBEN: 
+			 case ACHT:
+			 case NEUN:
+			 case ZEHN:
+			 case BUBE: 
+			 case DAME: 
+			 case KOENIG:
+			 case ASS:
+			 }
+		 case PIK:
+			 switch (w) {
+			 case SIEBEN:
+			 case ACHT:
+			 case NEUN:
+			 case ZEHN:
+			 case BUBE:
+			 case DAME:
+			 case KOENIG:
+			 case ASS:
+				 }
+		 case HERZ:
+			 switch (w) {
+			 case SIEBEN:
+			 case ACHT:
+			 case NEUN:
+			 case ZEHN:
+			 case BUBE:
+			 case DAME:
+			 case KOENIG:
+			 case ASS:
+				 }
+		 case KARO:
+			 switch (w) {
+			 case SIEBEN:
+			 case ACHT:
+			 case NEUN:
+			 case ZEHN:
+			 case BUBE:
+			 case DAME:
+			 case KOENIG:
+			 case ASS:
+				 }
+		 }*/
+	 }
+}
