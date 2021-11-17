@@ -3,6 +3,36 @@ public class Spieler {
     String name;
     Karte gespielteKarte;
 
+    public static void main(String[] args) {
+        Karte[] ElisabethKarten = {
+            new Karte(Farbe.HERZ, Wert.NEUN),
+            new Karte(Farbe.HERZ, Wert.ZEHN),
+            new Karte(Farbe.PIK, Wert.BUBE),
+        };
+        Spieler Elisabeth = new Spieler("Elisabeth", ElisabethKarten);
+
+        Karte[] KlausKarten = {
+            new Karte(Farbe.HERZ, Wert.ZEHN),
+            new Karte(Farbe.PIK, Wert.BUBE),
+            new Karte(Farbe.HERZ, Wert.NEUN),
+        };
+        Spieler Klaus = new Spieler("Elisabeth", KlausKarten);
+
+
+    }
+
+    Spieler() {
+    }
+
+    Spieler(String initName) {
+        this.name = initName;
+    }
+
+    Spieler(String initName, Karte[] initKartenhand) {
+        this.name = initName;
+        this.kartenhand = initKartenhand;
+    }
+
     public String toString() {
         return name;
     }
@@ -28,5 +58,9 @@ public class Spieler {
 			}
 		}
         gespielteKarte = null;
+    }
+
+    public void spiele(Karte k) {
+        
     }
 }
