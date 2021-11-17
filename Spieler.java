@@ -16,9 +16,12 @@ public class Spieler {
             new Karte(Farbe.PIK, Wert.BUBE),
             new Karte(Farbe.HERZ, Wert.NEUN),
         };
-        Spieler Klaus = new Spieler("Elisabeth", KlausKarten);
+        Spieler Klaus = new Spieler("Klaus", KlausKarten);
 
+        Karte KaroZehn = new Karte(Farbe.KARO, Wert.ZEHN);
 
+        Elisabeth.spiele(KaroZehn);
+        Klaus.spiele(KaroZehn);
     }
 
     Spieler() {
@@ -61,6 +64,22 @@ public class Spieler {
     }
 
     public void spiele(Karte k) {
-        
+        spieleKarte(k);
+
+        if(gespielteKarte == null) {
+            System.out.println(this.name + " hat verloren!");
+            return;
+        }
+
+        while(this.kartenhand.length > 0) {
+            spieleKarte(gespielteKarte);
+
+            if(gespielteKarte == null) {
+                System.out.println(this.name + " hat verloren!");
+                return;
+            }
+        }
+
+        System.out.println(this.name + " hat gewonnen!");
     }
 }
