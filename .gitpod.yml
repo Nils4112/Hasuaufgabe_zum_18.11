@@ -2,10 +2,6 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  #- name: Install Java 17
-  #  init: |
-  #    sdk install java 17.0.1-open
-  #    sdk default java 17.0.1-open
   - name: run
     init: javac Test.java
     command: java Test
