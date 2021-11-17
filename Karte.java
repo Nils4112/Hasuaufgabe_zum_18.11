@@ -13,7 +13,7 @@ public record Karte(Farbe Farbe, Wert Wert){
 	 public static Karte neueKarte(String f, String w)
 	 {
 		 
-		
+		//funktioniert nicht
 		 return Karte.neueKarte(Farbe.KREUZ, Wert.SIEBEN);
 		/*switch (f) {
 		 case KREUZ: 
