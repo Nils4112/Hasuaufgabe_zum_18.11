@@ -13,54 +13,6 @@ public record Karte(Farbe thisFarbe, Wert thisWert){
 	 }
 	 public static Karte neueKarte(String f, String w)
 	 {
-		 
-		//funktioniert nicht
 		 return Karte.neueKarte(Farbe.valueOf(f), Wert.valueOf(w));
-		/*switch (f) {
-		 case KREUZ: 
-			 switch (w) {
-			 case SIEBEN: 
-			 case ACHT:
-			 case NEUN:
-			 case ZEHN:
-			 case BUBE: 
-			 case DAME: 
-			 case KOENIG:
-			 case ASS:
-			 }
-		 case PIK:
-			 switch (w) {
-			 case SIEBEN:
-			 case ACHT:
-			 case NEUN:
-			 case ZEHN:
-			 case BUBE:
-			 case DAME:
-			 case KOENIG:
-			 case ASS:
-				 }
-		 case HERZ:
-			 switch (w) {
-			 case SIEBEN:
-			 case ACHT:
-			 case NEUN:
-			 case ZEHN:
-			 case BUBE:
-			 case DAME:
-			 case KOENIG:
-			 case ASS:
-				 }
-		 case KARO:
-			 switch (w) {
-			 case SIEBEN:
-			 case ACHT:
-			 case NEUN:
-			 case ZEHN:
-			 case BUBE:
-			 case DAME:
-			 case KOENIG:
-			 case ASS:
-				 }
-		 }*/
 	 }
 }
