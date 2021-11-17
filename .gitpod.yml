@@ -4,8 +4,8 @@ tasks:
       sdk install java 17.0.1-open
       sdk default java 17.0.1-open
   - name: run
-    init: javac 
-    command: java 
+    init: javac Test.java
+    command: java Test
 
 vscode:
   extensions:
