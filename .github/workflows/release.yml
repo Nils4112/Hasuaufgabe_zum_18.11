@@ -27,3 +27,10 @@ jobs:
           
       - name: ls -la
         run: ls -la .
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Abgabe
+          tag_name: abgabe
+          files: Abgabe.zip
