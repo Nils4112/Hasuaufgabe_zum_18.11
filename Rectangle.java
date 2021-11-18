@@ -15,7 +15,7 @@ public class Rectangle {
 	 */
 	public Rectangle(int xInput, int yInput, int widthInput, int heightInput) 
 	{
-		if(ueberpruefe(xInput)&&ueberpruefe(yInput)&&ueberpruefe(heightInput)&&ueberpruefe(widthInput)) {
+		if(ueberpruefe(xInput) && ueberpruefe(yInput) && ueberpruefe(heightInput) && ueberpruefe(widthInput)) {
 			this.x = xInput;
 			this.y = yInput;
 			this.width =widthInput;
@@ -32,9 +32,9 @@ public class Rectangle {
 	 * @param yInput initiales y
 	 * @param sidelengthInput initiale Seitenlaenge, setzt width und height
 	 */
-	public Rectangle ( int xInput , int yInput , int sidelengthInput ) 
+	public Rectangle (int xInput , int yInput , int sidelengthInput) 
 	{
-		if(ueberpruefe(xInput)&&ueberpruefe(yInput)&&ueberpruefe(sidelengthInput)) {
+		if(ueberpruefe(xInput) && ueberpruefe(yInput) && ueberpruefe(sidelengthInput)) {
 			this.x = xInput;
 			this.y = yInput;
 			this.width = sidelengthInput;
@@ -61,7 +61,7 @@ public class Rectangle {
 	 */
 	private boolean ueberpruefe(int Input)
 	{
-		if(Input<0&&!(Input==(int)Input))
+		if(Input < 0 && !(Input == (int)Input))
 		{
 			return false;
 		}
@@ -166,11 +166,11 @@ public class Rectangle {
 	public static boolean areSquares(Rectangle ... rectangles)
 	{
 		boolean square= true;
-		for(int i = 0; i<rectangles.length; i++) 
+		for(int i = 0; i < rectangles.length; i++) 
 		{
 			int hoehe= rectangles[i].getHeigth();
 			int breite =rectangles[i].getWidth();
-			if(!(hoehe== breite))
+			if(!(hoehe == breite))
 			{
 				square = false;
 			}
@@ -185,7 +185,7 @@ public class Rectangle {
 	*/
 	public int area()
 	{
-		int fArea = this.heigth*this.width;
+		int fArea = this.heigth * this.width;
 		return fArea;
 	}
 	/**
@@ -193,19 +193,19 @@ public class Rectangle {
 	 * @param rectangles Liste der Rechtecke
 	 * @return neues Rechteck, das den Schnitt repraesentiert
 	*/
-	public static Rectangle intersection ( Rectangle ... rectangles )
+	public static Rectangle intersection (Rectangle ... rectangles)
 	{
 		int[] maxX = new int[rectangles.length];
 		//x ermitteln 
-		for(int i = 0; i<rectangles.length; i++) 
+		for(int i = 0; i < rectangles.length; i++) 
 		{
-			maxX[i]=rectangles[i].getX();
+			maxX[i] = rectangles[i].getX();
 		}
 		int X = Utils.max(maxX);
 		//x ueberpruefen 
-		for(int x = 0; x<rectangles.length; x++) 
+		for(int x = 0; x < rectangles.length; x++) 
 		{
-			if(!(X<rectangles[x].getX()+rectangles[x].getWidth()))
+			if(!(X < rectangles[x].getX() + rectangles[x].getWidth()))
 			{
 				System.out.println("bin hier");
 				return null;
@@ -213,29 +213,29 @@ public class Rectangle {
 		}
 		int[] minY = new int[rectangles.length];
 		//y ermitteln 
-		for(int y = 0; y<rectangles.length; y++) 
+		for(int y = 0; y < rectangles.length; y++) 
 		{
 			minY[y]=rectangles[y].getY();
 		}
 		int Y = Utils.min(minY);
 		//y ueberpruefen 
-		for(int i = 0; i<rectangles.length; i++) 
+		for(int i = 0; i < rectangles.length; i++) 
 		{
-			if(!(Y>rectangles[i].getY()-rectangles[i].getWidth()))
+			if(!(Y > rectangles[i].getY() - rectangles[i].getWidth()))
 			{
 				return null;
 			}
 		}
 		int[] xWidth = new int[rectangles.length];
-		for(int i = 0; i<rectangles.length; i++) 
+		for(int i = 0; i < rectangles.length; i++) 
 		{
-			xWidth[i]=rectangles[i].getX()+rectangles[i].width-X;
+			xWidth[i] = rectangles[i].getX() + rectangles[i].width - X;
 		}
 		int xNew= Utils.min(xWidth);
 		int[] yWidth = new int[rectangles.length];
-		for(int i = 0; i<rectangles.length; i++) 
+		for(int i = 0; i < rectangles.length; i++) 
 		{
-			yWidth[i]=rectangles[i].getY()+rectangles[i].heigth-Y;
+			yWidth[i]=rectangles[i].getY() + rectangles[i].heigth - Y;
 		}
 		int yNew= Utils.min(yWidth);
 		
