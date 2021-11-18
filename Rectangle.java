@@ -2,10 +2,10 @@
  * Klasse zur Repräsentation eines Rechtecks
  */
 public class Rectangle {
-	int x;
-	int y;
-	int width;
-	int heigth;
+	private int x;
+	private int y;
+	private int width;
+	private int heigth;
 	/**
 	 * Konstruktor für Rechtecke, die keine Quadrate sind
 	 * @param xInput initiales x
