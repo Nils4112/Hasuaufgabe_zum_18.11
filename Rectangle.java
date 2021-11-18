@@ -36,6 +36,7 @@ public class Rectangle {
 	}
 	private boolean ueberpruefe(int Input)
 	{
+		/**@param ueberprueft ob es ein zugelassener Input ist*/
 		if(Input<0&&!(Input==(int)Input))
 		{
 			return false;
@@ -47,10 +48,12 @@ public class Rectangle {
 	}
 	public int getX()
 	{
+		/**@param gibt x aus*/
 		return this.x;
 	}
 	public void setX(int xInput)
 	{
+		/**@param verändert x*/
 		if(ueberpruefe(xInput)){
 			this.x = xInput;
 		}
@@ -61,10 +64,12 @@ public class Rectangle {
 	}
 	public int getY()
 	{
+		/**@param gibt y aus*/
 		return this.y;
 	}
 	public void setY(int yInput)
 	{
+		/**@param verändert y*/
 		if(ueberpruefe(yInput)){
 			this.y = yInput;
 		}
@@ -75,10 +80,12 @@ public class Rectangle {
 	}
 	public int getWidth()
 	{
+		/**@param gibt width aus*/
 		return this.width;
 	}
 	public void setWidth(int widthInput)
 	{
+		/**@param verändert width*/
 		if(ueberpruefe(widthInput)){
 			this.width = widthInput;
 		}
@@ -89,10 +96,12 @@ public class Rectangle {
 	}
 	public int getHeigth()
 	{
+		/**@param gibt heigth aus*/
 		return this.heigth;
 	}
 	public void setHeigth(int heigthInput)
 	{
+		/**@param verändert heigth*/
 		if(ueberpruefe(heigthInput)){
 			this.heigth = heigthInput;
 		}
@@ -103,6 +112,7 @@ public class Rectangle {
 	}
 	public boolean areSquares(Rectangle ... rectangles)
 	{
+		/**@param überprüft ob die Recktecke Quadrate sind*/
 		boolean square= true;
 		for(int i = 0; i<rectangles.length; i++) 
 		{
@@ -126,7 +136,8 @@ public class Rectangle {
 	}
 	public Rectangle intersection ( Rectangle ... rectangles )
 	{
-		int[] maxX = new int[rectangles.length-1];
+		/**@param berechnet den Schnitt der Rechtecke*/
+		int[] maxX = new int[rectangles.length];
 		//x ermitteln 
 		for(int i = 0; i<rectangles.length; i++) 
 		{
@@ -134,20 +145,21 @@ public class Rectangle {
 		}
 		int X = Utils.max(maxX);
 		//x ueberpruefen 
-		for(int i = 0; i<rectangles.length; i++) 
+		for(int x = 0; x<rectangles.length; x++) 
 		{
-			if(!(X<rectangles[i].getX()-rectangles[i].getWidth()))
+			if(!(X<rectangles[x].getX()+rectangles[x].getWidth()))
 			{
+				System.out.println("bin hier");
 				return null;
 			}
 		}
-		int[] minY = new int[rectangles.length-1];
+		int[] minY = new int[rectangles.length];
 		//y ermitteln 
-		for(int i = 0; i<rectangles.length; i++) 
+		for(int y = 0; y<rectangles.length; y++) 
 		{
-			minY[i]=rectangles[i].getY();
+			minY[y]=rectangles[y].getY();
 		}
-		int Y = Utils.max(maxX);
+		int Y = Utils.min(minY);
 		//y ueberpruefen 
 		for(int i = 0; i<rectangles.length; i++) 
 		{
@@ -156,13 +168,29 @@ public class Rectangle {
 				return null;
 			}
 		}
-		//hier fehlen noch die höhe und breite des neuen Rechtecks
-		return null;
+		int[] xWidth = new int[rectangles.length];
+		for(int i = 0; i<rectangles.length; i++) 
+		{
+			xWidth[i]=rectangles[i].getX()+rectangles[i].width-X;
+		}
+		int xNew= Utils.min(xWidth);
+		int[] yWidth = new int[rectangles.length];
+		for(int i = 0; i<rectangles.length; i++) 
+		{
+			yWidth[i]=rectangles[i].getY()+rectangles[i].heigth-Y;
+		}
+		int yNew= Utils.min(yWidth);
+		
+		Rectangle r1 = new Rectangle(X,Y,xNew,yNew);
+		return r1;
+		
 	}
 	public String toString()
 	{
+		/**@param erstellt einen der Aufgabe entsprechenden String*/
 		int xWidth= (this.x+this.width);
 		int yHeigth =this.y-this.heigth;
 		return "("+this.x+"|"+this.y+"),("+this.x+"|"+yHeigth+"),("+xWidth+"|"+yHeigth+"),("+xWidth+"|"+this.y+")";	
 	}
+	
 }
