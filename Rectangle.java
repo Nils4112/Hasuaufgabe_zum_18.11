@@ -50,7 +50,7 @@ public class Rectangle {
 	 * @param toCopy Das vorhandene Rechteck
 	 * @return Das neue Rechteck mit den selben Attributen, wie toCopy
 	*/
-	public Rectangle copy(Rectangle toCopy)
+	public static Rectangle copy(Rectangle toCopy)
 	{
 		return new Rectangle(toCopy.getX(), toCopy.getY(), toCopy.getWidth(), toCopy.getHeigth());
 	}
@@ -163,7 +163,7 @@ public class Rectangle {
 	 * @param rectangles Liste der zu ueberprüfenden Rechtecke
 	 * @return true wenn alle uebergebenen Rechtecke Quadrate sind
 	*/
-	public boolean areSquares(Rectangle ... rectangles)
+	public static boolean areSquares(Rectangle ... rectangles)
 	{
 		boolean square= true;
 		for(int i = 0; i<rectangles.length; i++) 
@@ -193,7 +193,7 @@ public class Rectangle {
 	 * @param rectangles Liste der Rechtecke
 	 * @return neues Rechteck, das den Schnitt repraesentiert
 	*/
-	public Rectangle intersection ( Rectangle ... rectangles )
+	public static Rectangle intersection ( Rectangle ... rectangles )
 	{
 		int[] maxX = new int[rectangles.length];
 		//x ermitteln 
