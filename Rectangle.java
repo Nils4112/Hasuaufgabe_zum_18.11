@@ -1,8 +1,18 @@
+/**
+ * Klasse zur Repräsentation eines Rechtecks
+ */
 public class Rectangle {
 	int x;
 	int y;
 	int width;
 	int heigth;
+	/**
+	 * Konstruktor für Rechtecke, die keine Quadrate sind
+	 * @param xInput initiales x
+	 * @param yInput initiales y
+	 * @param widthInput initiale width
+	 * @param heightInput initiale height
+	 */
 	public Rectangle(int xInput, int yInput, int widthInput, int heightInput) 
 	{
 		if(ueberpruefe(xInput)&&ueberpruefe(yInput)&&ueberpruefe(heightInput)&&ueberpruefe(widthInput)) {
@@ -16,6 +26,12 @@ public class Rectangle {
 			Utils.error("falscher Wert eingegeben");
 		}
 	}
+	/**
+	 * Konstruktor für Rechtecke, die Quadrate sind
+	 * @param xInput initiales x
+	 * @param yInput initiales y
+	 * @param sidelengthInput initiale Seitenlaenge, setzt width und height
+	 */
 	public Rectangle ( int xInput , int yInput , int sidelengthInput ) 
 	{
 		if(ueberpruefe(xInput)&&ueberpruefe(yInput)&&ueberpruefe(sidelengthInput)) {
@@ -29,14 +45,19 @@ public class Rectangle {
 			Utils.error("falscher Wert eingegeben");
 		}
 	}
+	/**
+	 * Erstellt ein neues Rechteck mit den selben Attributen, wie das übergebene Rechteck
+	 * @param toCopy Das vorhandene Rechteck
+	 * @return Das neue Rechteck mit den selben Attributen, wie toCopy
+	*/
 	public Rectangle copy(Rectangle toCopy)
 	{
-		Rectangle rec1= toCopy;
-		return rec1;
+		return new Rectangle(toCopy.getX(), toCopy.getY(), toCopy.getWidth(), toCopy.getHeigth());
 	}
 	/**
 	 * Ueberprueft ob der uebergebene Input zulaessig ist
 	 * @param Input zu ueberprüfender Input
+	 * @return Boolean ob Input zulaessig ist
 	 */
 	private boolean ueberpruefe(int Input)
 	{
@@ -51,6 +72,7 @@ public class Rectangle {
 	}
 	/**
 	 * Getter für x
+	 * @return x des Rechtecks
 	*/
 	public int getX()
 	{	
@@ -72,6 +94,7 @@ public class Rectangle {
 	}
 	/**
 	 * Getter für y
+	 * @return y des Rechtecks
 	*/
 	public int getY()
 	{
@@ -93,6 +116,7 @@ public class Rectangle {
 	}
 	/**
 	 * Getter für width
+	 * @return width des Rechtecks
 	*/
 	public int getWidth()
 	{
@@ -114,6 +138,7 @@ public class Rectangle {
 	}
 	/**
 	 * Getter für height
+	 * @return height des Rechtecks
 	*/
 	public int getHeigth()
 	{
@@ -135,7 +160,8 @@ public class Rectangle {
 	}
 	/**
 	 * Gibt zurück ob die Recktecke Quadrate sind
-	 * @param rectangles Liste der zu überprüfenden Rechtecke
+	 * @param rectangles Liste der zu ueberprüfenden Rechtecke
+	 * @return true wenn alle uebergebenen Rechtecke Quadrate sind
 	*/
 	public boolean areSquares(Rectangle ... rectangles)
 	{
@@ -155,6 +181,7 @@ public class Rectangle {
 	
 	/**
 	 * Gibt die Fläche des Rechtecks zurück
+	 * @return berechnete Flaeche
 	*/
 	public int area()
 	{
@@ -164,6 +191,7 @@ public class Rectangle {
 	/**
 	 * Gibt den Schnitt der übergebenen Rechtecke zurück
 	 * @param rectangles Liste der Rechtecke
+	 * @return neues Rechteck, das den Schnitt repraesentiert
 	*/
 	public Rectangle intersection ( Rectangle ... rectangles )
 	{
@@ -217,6 +245,7 @@ public class Rectangle {
 	}
 	/**
 	 * Gibt einen der Aufgabe entsprechenden String zurück
+	 * @return String mit den Eckpunkten des Rechtecks gegen den Uhrzeigersinn
 	 */
 	public String toString()
 	{
