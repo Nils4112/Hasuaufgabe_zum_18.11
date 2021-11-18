@@ -29,7 +29,7 @@ public class Rectangle {
 			Utils.error("falscher Wert eingegeben");
 		}
 	}
-	public Rectangle copy(Rectangle toCopy)
+	public static Rectangle copy(Rectangle toCopy)
 	{
 		Rectangle rec1= toCopy;
 		return rec1;
@@ -100,5 +100,63 @@ public class Rectangle {
 		{
 			Utils.error("falscher Wert eingegeben");
 		}	
+	}
+	public boolean areSquares(Rectangle ... rectangles)
+	{
+		boolean square= true;
+		for(int i = 0; i<rectangles.length; i++) 
+		{
+			int hoehe= rectangles[i].getHeigth();
+			int breite =rectangles[i].getWidth();
+			if(!(hoehe== breite))
+			{
+				square = false;
+			}
+			
+		}
+		return square;
+	}
+	
+	
+	public int area()
+	{
+		/**@param die Fläche des Rechtecks*/
+		int fArea = this.heigth*this.width;
+		return fArea;
+	}
+	public Rectangle intersection ( Rectangle ... rectangles )
+	{
+		int[] maxX = new int[rectangles.length-1];
+		//x ermitteln 
+		for(int i = 0; i<rectangles.length; i++) 
+		{
+			maxX[i]=rectangles[i].getX();
+		}
+		int X = Utils.max(maxX);
+		//x ueberpruefen 
+		for(int i = 0; i<rectangles.length; i++) 
+		{
+			if(!(X<rectangles[i].getX()-rectangles[i].getWidth()))
+			{
+				return null;
+			}
+		}
+		int[] minY = new int[rectangles.length-1];
+		//y ermitteln 
+		for(int i = 0; i<rectangles.length; i++) 
+		{
+			minY[i]=rectangles[i].getY();
+		}
+		int Y = Utils.max(maxX);
+		//y ueberpruefen 
+		for(int i = 0; i<rectangles.length; i++) 
+		{
+			if(!(Y>rectangles[i].getY()-rectangles[i].getWidth()))
+			{
+				return null;
+			}
+		}
+		
+		return null;
 	}
 }
