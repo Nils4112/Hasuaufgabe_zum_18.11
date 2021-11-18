@@ -156,7 +156,7 @@ public class Rectangle {
 				return null;
 			}
 		}
-		
+		//hier fehlen noch die höhe und breite des neuen Rechtecks
 		return null;
 	}
 }
