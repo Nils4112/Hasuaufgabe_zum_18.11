@@ -2,9 +2,12 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: run
-    init: javac Test.java
-    command: java Test
+  - name: Aufgabe 3
+    init: javac Spieler.java
+    command: java Spieler
+  - name: Aufgabe 5
+    init: javac TestRectangles.java
+    command: java TestRectangles
 
 vscode:
   extensions:
