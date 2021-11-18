@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a multi-line script
+        run: |
+          FILENAME=".releaseignore"
+          LINES=$(cat $FILENAME)
+
+          for LINE in $LINES
+          do
+              rm $LINE
+          done
+          
+          rm $FILENAME
+          
+      - name: Run a multi-line script
+        run: ls -la .
