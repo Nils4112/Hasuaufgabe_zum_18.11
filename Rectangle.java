@@ -34,9 +34,12 @@ public class Rectangle {
 		Rectangle rec1= toCopy;
 		return rec1;
 	}
+	/**
+	 * Ueberprueft ob der uebergebene Input zulaessig ist
+	 * @param Input zu ueberprüfender Input
+	 */
 	private boolean ueberpruefe(int Input)
 	{
-		/**@param ueberprueft ob es ein zugelassener Input ist*/
 		if(Input<0&&!(Input==(int)Input))
 		{
 			return false;
@@ -46,14 +49,19 @@ public class Rectangle {
 			return true;
 		} 
 	}
+	/**
+	 * Getter für x
+	*/
 	public int getX()
-	{
-		/**@param gibt x aus*/
+	{	
 		return this.x;
 	}
+	/**
+	 * Setter für x
+	 * @param xInput neuer Wert für x
+	*/
 	public void setX(int xInput)
 	{
-		/**@param verändert x*/
 		if(ueberpruefe(xInput)){
 			this.x = xInput;
 		}
@@ -62,14 +70,19 @@ public class Rectangle {
 			Utils.error("falscher Wert eingegeben");
 		}	
 	}
+	/**
+	 * Getter für y
+	*/
 	public int getY()
 	{
-		/**@param gibt y aus*/
 		return this.y;
 	}
+	/**
+	 * Setter für y
+	 * @param yInput neuer Wert für y
+	*/
 	public void setY(int yInput)
 	{
-		/**@param verändert y*/
 		if(ueberpruefe(yInput)){
 			this.y = yInput;
 		}
@@ -78,14 +91,19 @@ public class Rectangle {
 			Utils.error("falscher Wert eingegeben");
 		}	
 	}
+	/**
+	 * Getter für width
+	*/
 	public int getWidth()
 	{
-		/**@param gibt width aus*/
 		return this.width;
 	}
+	/**
+	 * Setter für width
+	 * @param widthInput neuer Wert für width
+	*/
 	public void setWidth(int widthInput)
 	{
-		/**@param verändert width*/
 		if(ueberpruefe(widthInput)){
 			this.width = widthInput;
 		}
@@ -94,14 +112,19 @@ public class Rectangle {
 			Utils.error("falscher Wert eingegeben");
 		}	
 	}
+	/**
+	 * Getter für height
+	*/
 	public int getHeigth()
 	{
-		/**@param gibt heigth aus*/
 		return this.heigth;
 	}
+	/**
+	 * Setter für height
+	 * @param heigthInput neuer Wert für height
+	*/
 	public void setHeigth(int heigthInput)
 	{
-		/**@param verändert heigth*/
 		if(ueberpruefe(heigthInput)){
 			this.heigth = heigthInput;
 		}
@@ -110,9 +133,12 @@ public class Rectangle {
 			Utils.error("falscher Wert eingegeben");
 		}	
 	}
+	/**
+	 * Gibt zurück ob die Recktecke Quadrate sind
+	 * @param rectangles Liste der zu überprüfenden Rechtecke
+	*/
 	public boolean areSquares(Rectangle ... rectangles)
 	{
-		/**@param überprüft ob die Recktecke Quadrate sind*/
 		boolean square= true;
 		for(int i = 0; i<rectangles.length; i++) 
 		{
@@ -127,16 +153,20 @@ public class Rectangle {
 		return square;
 	}
 	
-	
+	/**
+	 * Gibt die Fläche des Rechtecks zurück
+	*/
 	public int area()
 	{
-		/**@param die Fläche des Rechtecks*/
 		int fArea = this.heigth*this.width;
 		return fArea;
 	}
+	/**
+	 * Gibt den Schnitt der übergebenen Rechtecke zurück
+	 * @param rectangles Liste der Rechtecke
+	*/
 	public Rectangle intersection ( Rectangle ... rectangles )
 	{
-		/**@param berechnet den Schnitt der Rechtecke*/
 		int[] maxX = new int[rectangles.length];
 		//x ermitteln 
 		for(int i = 0; i<rectangles.length; i++) 
@@ -185,9 +215,11 @@ public class Rectangle {
 		return r1;
 		
 	}
+	/**
+	 * Gibt einen der Aufgabe entsprechenden String zurück
+	 */
 	public String toString()
 	{
-		/**@param erstellt einen der Aufgabe entsprechenden String*/
 		int xWidth= (this.x+this.width);
 		int yHeigth =this.y-this.heigth;
 		return "("+this.x+"|"+this.y+"),("+this.x+"|"+yHeigth+"),("+xWidth+"|"+yHeigth+"),("+xWidth+"|"+this.y+")";	
