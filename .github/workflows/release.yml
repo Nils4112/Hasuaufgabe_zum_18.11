@@ -17,7 +17,7 @@ jobs:
 
           for LINE in $LINES
           do
-              rm $LINE
+              rm -r $LINE
           done
           
           rm $FILENAME
