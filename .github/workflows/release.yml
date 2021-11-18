@@ -23,7 +23,7 @@ jobs:
           rm $FILENAME
                   
       - name: Create release zip
-        run: zip -r Abgabe.zip . -9 -x .git
+        run: zip -r Abgabe.zip . -9 -x .git/\*
           
       - name: ls -la
         run: ls -la .
