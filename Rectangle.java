@@ -159,4 +159,10 @@ public class Rectangle {
 		//hier fehlen noch die höhe und breite des neuen Rechtecks
 		return null;
 	}
+	public String toString()
+	{
+		int xWidth= (this.x+this.width);
+		int yHeigth =this.y-this.heigth;
+		return "("+this.x+"|"+this.y+"),("+this.x+"|"+yHeigth+"),("+xWidth+"|"+yHeigth+"),("+xWidth+"|"+this.y+")";	
+	}
 }
