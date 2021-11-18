@@ -29,7 +29,7 @@ public class Rectangle {
 			Utils.error("falscher Wert eingegeben");
 		}
 	}
-	public static Rectangle copy(Rectangle toCopy)
+	public Rectangle copy(Rectangle toCopy)
 	{
 		Rectangle rec1= toCopy;
 		return rec1;
