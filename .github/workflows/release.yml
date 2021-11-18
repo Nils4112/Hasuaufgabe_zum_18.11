@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run a multi-line script
+      - name: Delete files not included in release
         run: |
           FILENAME=".releaseignore"
           LINES=$(cat $FILENAME)
@@ -21,6 +21,9 @@ jobs:
           done
           
           rm $FILENAME
+                  
+      - name: Create release zip
+        run: zip -r Abgabe.zip . -9 -x .git
           
-      - name: Run a multi-line script
+      - name: ls -la
         run: ls -la .
