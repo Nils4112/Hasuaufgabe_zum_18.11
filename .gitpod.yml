@@ -8,6 +8,12 @@ tasks:
   - name: Aufgabe 5
     init: javac TestRectangles.java
     command: java TestRectangles
+  - name: Javadoc
+    command: javadoc -d doc Rectangle.java
+  - name: Javadoc Server
+    command: |
+      cd doc
+      python3 -m http.server 3000
 
 vscode:
   extensions:
